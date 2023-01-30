@@ -1,4 +1,4 @@
-# This is a code challenge for trackingpremium focused on Symfony Framework (PHP)
+# A code challenge for trackingpremium, SMF Framework (PHP)
 
 The test consists of creating a functionality in Symfony to display a list of companies and allow the user to select one.
 
