@@ -3,9 +3,9 @@
 The test consists of creating a functionality in Symfony to display a list of companies and allow the user to select one.
 
 1. The view should have 3 sections:
-	· Header: Contains a title and a short description.
-	· Body: List of companies with a radio button for the user to select.
-	· Footer: Continue button.
+	- Header: Contains a title and a short description.
+	- Body: List of companies with a radio button for the user to select.
+	- Footer: Continue button.
 	
 	
 2. If the user presses the continue button without choosing a company, a dialog box indicating the error should be displayed.
@@ -14,9 +14,10 @@ The test consists of creating a functionality in Symfony to display a list of co
 
  
 List of Companies options:
-	1. Select the company where you want to perform your transactions.
-	2. Companies with description and radio button
-	3. Continue button
+
+1. Select the company where you want to perform your transactions.
+2. Companies with description and radio button
+3. Continue button
 
  
 Example of data format:
@@ -42,7 +43,30 @@ Example of data format:
 
 # Solution:
 
+The following is a list of key files:
 
+Entities:
+  - smf/src/Entity/Company.php
+    - This non-mapped entity retrieves data from an endpoint and hydrates itself.
+
+Services:
+- smf/src/Service/DataCompanyGenerator.php
+  - This custom container service is responsible for fetching data.
+
+Collections:
+- smf/src/Collection/CompanyCollection.php
+  - This class populates the "fetched data" ArrayCollection with company objects.
+
+View:
+- smf/templates/company/index.html.twig
+  - This template uses Bootstrap and JavaScript to display the list of companies.
+
+Controller:
+- smf/src/Controller/CompanyController.php
+  - This file handles HTTP requests and coordinates the interaction between the view, services, and entities.
+
+
+The entities retrieve data, the services process it, the collections store it, and the view displays it. The controller acts as the central hub, managing communication between the different components.
 
 # Video demo:
 

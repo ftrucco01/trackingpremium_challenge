@@ -67,7 +67,6 @@ class DataCompanyGenerator
         );
 
         $statusCode = $response->getStatusCode();
-        $contentType = $response->getHeaders()['content-type'][0];
         $content = $response->getContent();
         $content = $response->toArray();
 
