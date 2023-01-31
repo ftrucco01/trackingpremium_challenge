@@ -38,3 +38,14 @@ Example of data format:
 # Requirements:
     1. The solution must be published in a public repository on Github or Bitbucket.
     2. Endpoint to retrieve the data: https://apidemo.trackingpremium.us/publicapi/v1/search_username?username=trackingpremium
+
+
+# Solution:
+
+
+
+# Video demo:
+
+Live only for 24 hours: https://streamable.com/3bi8ex
+
+Link to download it: https://raw.githubusercontent.com/ftrucco01/trackingpremium_challenge/main/smf/public/demo.webm
