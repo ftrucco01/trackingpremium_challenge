@@ -31,7 +31,7 @@ Example of data format:
         "id": 1,
         "name": "Multitrack",
         "acronym": "maindemo"
-    } … ]
+    }]
 }
 ```
 
