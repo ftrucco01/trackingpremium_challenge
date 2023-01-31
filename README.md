@@ -55,7 +55,7 @@ Services:
 
 Collections:
 - smf/src/Collection/CompanyCollection.php
-  - This class populates the "fetched data" ArrayCollection with company objects.
+  - This class populates the "fetched data" into ArrayCollection of company objects.
 
 View:
 - smf/templates/company/index.html.twig
@@ -70,6 +70,6 @@ The entities retrieve data, the services process it, the collections store it, a
 
 # Video demo:
 
-Live only for 24 hours: https://streamable.com/3bi8ex
+Is live and available only for 24 hours: https://streamable.com/3bi8ex
 
 Link to download it: https://raw.githubusercontent.com/ftrucco01/trackingpremium_challenge/main/smf/public/demo.webm
