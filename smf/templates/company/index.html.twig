@@ -1,21 +1,83 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Companies List</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center mb-5">List of Companies</h1>
 
-{% block title %}Hello CompanyController!{% endblock %}
+      {% if companies|length > 0 %}
+      <h2 class="text-center mb-5">
+        Select the company where you want to perform your transactions
+      </h2>
+      {% endif %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-{{ dump(companies) }}
-{# <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/app/src/Controller/CompanyController.php'|file_link(0) }}">src/Controller/CompanyController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/app/templates/company/index.html.twig'|file_link(0) }}">templates/company/index.html.twig</a></code></li>
-    </ul>
-</div> #}
-
-{% endblock %}
+      {% if companies|length > 0 %}
+        <div id="error-message" class="alert alert-danger mt-3 d-none">
+          Please select a company.
+        </div>
+        <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Acronym</th>
+                <th>Logomain</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for company in companies %}
+            <tr>
+            <td>{{company.id}}</td>
+                <td>
+                <input type="radio" name="company" value="{{company.name}}" />
+                {{company.name}}
+                </td>
+                <td>{{company.acronym}}</td>
+                <td>{{company.logomain}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <h4 class="text-center mb-5">
+            Sorry, there are no companies available for display.
+        </h4>
+      {% endif %}
+      {% if companies|length > 0 %}
+      <div class="text-center mt-5">
+        <button id="continue-button" class="btn btn-primary">Continue button</button>
+      </div>
+      {% endif %}
+    </div>
+    
+    <script>
+      document.getElementById("continue-button").addEventListener("click", function() {
+        var selectedCompany = null;
+        var radios = document.getElementsByName("company");
+        for (var i = 0; i < radios.length; i++) {
+          if (radios[i].checked) {
+            selectedCompany = radios[i].value;
+            break;
+          }
+        }
+        if (selectedCompany === null) {
+          document.getElementById("error-message").classList.remove("d-none");
+        } else {
+          document.getElementById("error-message").classList.add("d-none");
+          alert("Selected company: " + selectedCompany);
+        }
+      });
+    </script>
+  </body>
+</html>
