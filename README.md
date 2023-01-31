@@ -72,4 +72,4 @@ The entities retrieve data, the services process it, the collections store it, a
 
 Is live and available only for 24 hours: https://streamable.com/3bi8ex
 
-Link to download it: https://raw.githubusercontent.com/ftrucco01/trackingpremium_challenge/main/smf/public/demo.webm
+Or you can download it: https://raw.githubusercontent.com/ftrucco01/trackingpremium_challenge/main/smf/public/demo.webm
